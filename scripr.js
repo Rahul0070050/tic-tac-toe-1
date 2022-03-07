@@ -14,13 +14,13 @@ var icon = "x"
 document.addEventListener("click", (e) => {
     var id = e.target.id;
     if (id >= 1 && id <= 9) {
-        if (icon == "x") {
-            icon = "o"
-        } else {
-            icon = "x"
-        }
         var col = document.getElementById(id);
         if (!col.innerHTML) {
+            if (icon == "x") {
+                icon = "o"
+            } else {
+                icon = "x"
+            }
             col.innerHTML = icon
             if (id == "1") {
                 if (col2.innerHTML == icon && col3.innerHTML == icon ||
