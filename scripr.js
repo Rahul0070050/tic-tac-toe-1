@@ -11,8 +11,11 @@ const col9 = document.getElementById("9");
 
 var icon = "x"
 
-document.addEventListener("click", (e) => {
-    var id = e.target.id;
+document.addEventListener("click",(e)=> {
+    addText(e.target.id);
+})
+
+function addText(id) {
     if (id >= 1 && id <= 9) {
         var col = document.getElementById(id);
         if (!col.innerHTML) {
@@ -22,62 +25,70 @@ document.addEventListener("click", (e) => {
                 icon = "x"
             }
             col.innerHTML = icon
-            if (id == "1") {
-                if (col2.innerHTML == icon && col3.innerHTML == icon ||
-                    col4.innerHTML == icon && col7.innerHTML == icon ||
-                    col5.innerHTML == icon && col9.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "2") {
-                if (col1.innerHTML == icon && col3.innerHTML == icon ||
-                    col5.innerHTML == icon && col8.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "3") {
-                if (col1.innerHTML == icon && col2.innerHTML == icon ||
-                    col6.innerHTML == icon && col9.innerHTML == icon ||
-                    col5.innerHTML == icon && col7.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "4") {
-                if (col1.innerHTML == icon && col7.innerHTML == icon ||
-                    col5.innerHTML == icon && col6.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "5") {
-                if (col1.innerHTML == icon && col9.innerHTML == icon ||
-                    col3.innerHTML == icon && col7.innerHTML == icon ||
-                    col2.innerHTML == icon && col8.innerHTML == icon ||
-                    col4.innerHTML == icon && col6.innerHTML == icon)
-                    alert(`${icon} wons`)
-            } else if (id == "6") {
-                if (col3.innerHTML == icon && col9.innerHTML == icon ||
-                    col5.innerHTML == icon && col4.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "7") {
-                if (col1.innerHTML == icon && col4.innerHTML == icon ||
-                    col8.innerHTML == icon && col9.innerHTML == icon ||
-                    col5.innerHTML == icon && col3.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "8") {
-                if (col9.innerHTML == icon && col7.innerHTML == icon ||
-                    col5.innerHTML == icon && col2.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            } else if (id == "9") {
-                if (col6.innerHTML == icon && col3.innerHTML == icon ||
-                    col7.innerHTML == icon && col8.innerHTML == icon ||
-                    col5.innerHTML == icon && col1.innerHTML == icon) {
-                    alert(`${icon} wons`)
-                }
-            }
+            eval(icon,id);
         }
     } else {
         return
     }
+}
+
+document.addEventListener("keypress",(e) => {
+    addText(e.key);
 })
+
+function eval(icon,id) {
+    if (id == "1") {
+        if (col2.innerHTML == icon && col3.innerHTML == icon ||
+            col4.innerHTML == icon && col7.innerHTML == icon ||
+            col5.innerHTML == icon && col9.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "2") {
+        if (col1.innerHTML == icon && col3.innerHTML == icon ||
+            col5.innerHTML == icon && col8.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "3") {
+        if (col1.innerHTML == icon && col2.innerHTML == icon ||
+            col6.innerHTML == icon && col9.innerHTML == icon ||
+            col5.innerHTML == icon && col7.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "4") {
+        if (col1.innerHTML == icon && col7.innerHTML == icon ||
+            col5.innerHTML == icon && col6.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "5") {
+        if (col1.innerHTML == icon && col9.innerHTML == icon ||
+            col3.innerHTML == icon && col7.innerHTML == icon ||
+            col2.innerHTML == icon && col8.innerHTML == icon ||
+            col4.innerHTML == icon && col6.innerHTML == icon)
+            alert(`${icon} wons`)
+    } else if (id == "6") {
+        if (col3.innerHTML == icon && col9.innerHTML == icon ||
+            col5.innerHTML == icon && col4.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "7") {
+        if (col1.innerHTML == icon && col4.innerHTML == icon ||
+            col8.innerHTML == icon && col9.innerHTML == icon ||
+            col5.innerHTML == icon && col3.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "8") {
+        if (col9.innerHTML == icon && col7.innerHTML == icon ||
+            col5.innerHTML == icon && col2.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    } else if (id == "9") {
+        if (col6.innerHTML == icon && col3.innerHTML == icon ||
+            col7.innerHTML == icon && col8.innerHTML == icon ||
+            col5.innerHTML == icon && col1.innerHTML == icon) {
+            alert(`${icon} wons`)
+        }
+    }
+}
 
 function reset() {
     alert()
